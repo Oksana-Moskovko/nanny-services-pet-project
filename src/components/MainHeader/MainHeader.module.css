@@ -1,22 +1,15 @@
-.header {  
-    position: relative;
-    z-index: 10;
-    
-    background: transparent;
-
-    padding: 32px 0 0 0;
-    color: white;
-    border-bottom: 1px solid rgba(251, 251, 251, 0.4); 
+.header {
+    background: var(--theme-color);
 }
 
 .headerContainer {
-    height: 48px;
     max-width: 1184px;
-    margin: 0px auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 96px;
+    justify-content:space-between;
+    padding: 30px 128px;
+    margin: 0px auto;
+    color: white;
 }
 
 .headerNav {

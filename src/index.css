@@ -40,6 +40,7 @@ a {
 }
 
 body {
+  margin: 0;
   display: block;
   place-items: normal;
   font-family: sans-serif;
@@ -49,7 +50,7 @@ body {
 img {
   display: block;
   max-width: 100%;
-    height: auto;
+  height: auto;
 }
 
 button {

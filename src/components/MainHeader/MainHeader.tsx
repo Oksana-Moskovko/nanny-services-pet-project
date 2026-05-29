@@ -1,7 +1,7 @@
-import css from "./Header.module.css";
+import css from "./MainHeader.module.css";
 import { Link } from "react-router";
 
-const Header = () => {
+const MainHeader = () => {
   return (
     <header className={css.header}>
       <div className={css.headerContainer}>
@@ -31,4 +31,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainHeader;

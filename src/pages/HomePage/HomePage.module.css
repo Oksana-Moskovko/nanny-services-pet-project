@@ -1,7 +1,7 @@
 .hero {
-    margin-top: -80px;
-    /* padding-top: 80px; */
     height: 736px;
+    max-width: 1376px;
+    margin: -90px auto;
 
     display: flex;
     border-radius: 30px;

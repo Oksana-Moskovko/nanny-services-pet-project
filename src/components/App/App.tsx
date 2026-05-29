@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router";
 import css from "../App/App.module.css";
-import Header from "../Header/Header";
-import HomePage from "../HomePage/HomePage";
+import HomePage from "../../pages/HomePage/HomePage";
+import NanniesPage from "../../pages/NanniesPage/NanniesPage";
+import HomeLayout from "../../layouts/HomeLayout";
+import MainLayout from "../../layouts/MainLayout";
 
 type CustomStyle = React.CSSProperties & {
   "--theme-color": string;
@@ -18,10 +20,14 @@ export default function App() {
       style={{ "--theme-color": randomColor } as CustomStyle}
       className={css.app}
     >
-      <Header />
-
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route element={<HomeLayout />}>
+          <Route path="/" element={<HomePage />} />
+        </Route>
+        <Route element={<MainLayout />}>
+          <Route path="/nannies" element={<NanniesPage />} />
+        </Route>
+        {/* <Route path="/" element={<HomePage />} /> */}
         {/* <Route path="/nannies" element={<NanniesPage />} /> */}
       </Routes>
     </div>
