@@ -1,0 +1,106 @@
+.hero {
+    margin-top: -80px;
+    /* padding-top: 80px; */
+    height: 736px;
+
+    display: flex;
+    border-radius: 30px;
+
+    background-color: #242424;
+    background-size: cover;
+    background-position: center;
+
+}
+.textContainer {
+    background-color: var(--theme-color);
+    border-radius: 30px 0 0 30px;
+}
+
+.imageContainer {
+    position: relative;
+
+    border-radius: 0 30px 30px 0;
+    width: 699px;
+    height: 736px;
+    background-color: #242424;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-image: url(../../../public/nanny-background-fon.jpg);
+}
+
+.heroText {
+    max-width: 517px;
+    padding: 251px 64px 163px 96px;
+}
+
+.heroTitle {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+
+    margin-bottom: 28px;
+}
+
+.heroDescription {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.07143;
+    letter-spacing: -0.02em;
+
+    margin-bottom: 64px;
+}
+
+.heroBtn {
+    display: inline-block;
+    color: write;
+    border: 1px solid rgba(251, 251, 251, 0.4);
+    border-radius: 30px;
+    padding: 18px 50px;
+    /* width: 230px; */
+    /* height: 60px; */
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #fbfbfb;
+
+}
+
+.iconContainer {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    display: flex;
+    padding: 32px;
+    /* width: 284px; */
+    border-radius: 20px;
+    background-color: #FBFBFB;
+}
+
+.iconConTexst {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(17, 16, 28, 0.5);
+}
+
+.iconDescript {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #11101c;
+}
+
+.icon {
+    background-color: var(--theme-color);
+    border-radius: 13px;
+    width: 54px;
+    height: 54px;
+    margin-right: 16px;
+}
