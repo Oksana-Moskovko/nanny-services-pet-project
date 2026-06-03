@@ -1,3 +1,89 @@
-.title {
-    color: black;
+.container{
+    padding-top: 170px;
+    background-color: #666666;
+    margin: 0 auto;
 }
+
+.iconI {
+    color: #8a8a89;
+}
+
+.blackText {
+    color: #11101c;
+}
+.list {
+    border-radius: 24px;
+    width: 1184px;
+    margin: 0 auto;
+    color: #8a8a89;
+}
+.listNannies {
+    background: #fbfbfb;
+    border-radius: 24px;
+    display: flex;
+    margin-bottom: 34px;
+}
+.listNannies:last-child {
+    margin-bottom: 0;
+}
+
+.divFrame {
+    padding-top: 24px;
+    padding-left: 24px;
+}
+
+.frame {
+    display: block;
+    border: 2px solid rgba(9, 87, 195, 0.2);
+    border-radius: 30px;
+    width: 120px;
+    height: 120px;
+}
+
+.photoNanny {
+    display: block;
+    border-radius: 20px;
+    width: 96px;
+    height: 96px; 
+    padding: 12px;
+}
+
+.frameInfo {
+    padding: 24px;
+}
+.frameInfo:last-child {
+    margin-bottom: 0;
+}
+
+.briefInfoTitle {
+    display: flex;
+    justify-content: space-between
+}
+
+.price {
+    color: #38cd3e;
+}
+.briefInfo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pill {
+    border-radius: 24px;
+    padding: 8px 16px;
+    background: #f3f3f3;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #8a8a89;
+}
+
+.underline {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #11101c;
+}
+
