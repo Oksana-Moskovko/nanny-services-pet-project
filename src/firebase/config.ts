@@ -14,7 +14,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-console.log(`${app} this app`);
+// console.log(`${app} this app`);
 const auth = getAuth(app);
 console.log(`${auth} this auth`);
 

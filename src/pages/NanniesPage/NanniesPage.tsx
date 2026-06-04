@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchNannies } from "../../services/nannyService";
 import css from "./NanniesPage.module.css";
+import { getAge } from "../../utils/getAge";
+import { ReadMoreComent } from "../../components/ReadMoreComent/ReadMoreComent";
 
 export interface Nanny {
   about: string;
@@ -25,13 +27,10 @@ export interface Review {
 
 export default function NanniesPage() {
   const [nannies, setNannies] = useState<Nanny[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
     fetchNannies().then((data) => {
-      console.log(data);
       setNannies(Object.values(data || {}));
     });
   }, []);
@@ -39,8 +38,11 @@ export default function NanniesPage() {
   return (
     <section className={css.container}>
       <ul className={css.list}>
-        {nannies.map((nanny, index) => (
-          <li key={`${nanny.name}-${index}`} className={css.listNannies}>
+        {nannies.slice(0, visibleCount).map((nanny, index) => (
+          <li
+            key={`${nanny.name}-${nanny.birthday}-${index}`}
+            className={css.listNannies}
+          >
             <div className={css.divFrame}>
               <div className={css.frame}>
                 <img
@@ -71,7 +73,10 @@ export default function NanniesPage() {
 
               <div className={css.briefInfo}>
                 <p className={css.pill}>
-                  Age: <span className={css.underline}>{nanny.birthday}</span>
+                  Age:{" "}
+                  <span className={css.underline}>
+                    {getAge(nanny.birthday)}
+                  </span>
                 </p>
                 <p className={css.pill}>
                   Experience:{" "}
@@ -97,22 +102,21 @@ export default function NanniesPage() {
                   <span className={css.blackText}>{nanny.education}</span>
                 </p>
               </div>
-              <p>{nanny.about}</p>
-              <button onClick={toggle}>Read more</button>
-              {isOpen && (
-                <ul>
-                  {nanny.reviews.map((review) => (
-                    <li>
-                      <div>{review.reviewer}</div>
-                      <p>{review.comment}</p>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <p className={css.about}>{nanny.about}</p>
+              <ReadMoreComent
+                key={`${nanny.name}-${nanny.birthday}`}
+                nanny={nanny}
+              />
             </div>
           </li>
         ))}
       </ul>
+      <button
+        onClick={() => setVisibleCount((prev) => prev + 3)}
+        className={css.loadMoreBtn}
+      >
+        Load more
+      </button>
     </section>
   );
 }
