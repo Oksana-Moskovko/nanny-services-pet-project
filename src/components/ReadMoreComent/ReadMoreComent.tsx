@@ -1,23 +1,21 @@
-import { useState } from "react";
 import css from "./ReadMoreComent.module.css";
 
-export function ReadMoreComent({ nanny }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+export function ReadMoreComent({ nanny, isOpen, onToggle }) {
+  // const [isOpen, setIsOpen] = useState(false);
   const reviews = nanny.reviews;
-  const toggle = () => setIsOpen(!isOpen);
+  // const toggle = () => setIsOpen(!isOpen);
 
   return (
     <>
       {!isOpen && (
-        <button onClick={toggle} className={css.readMoreBtn}>
+        <button onClick={onToggle} className={css.readMoreBtn}>
           Read more
         </button>
       )}
 
       {isOpen && (
         <>
-          <ul>
+          <ul className={css.listComents}>
             {reviews.map((review, index) => (
               <li key={index} className={css.list}>
                 <div className={css.user}>
@@ -35,7 +33,6 @@ export function ReadMoreComent({ nanny }) {
               </li>
             ))}
           </ul>
-          <button>Make an appointment</button>
         </>
       )}
     </>

@@ -1,0 +1,66 @@
+.appointmentDiv {
+    width: 472px;
+    color: #11101c;
+}
+.backBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    color: #11101C;
+    background-color: transparent;
+}
+
+.title {
+    margin-bottom: 20px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #11101c;
+}
+
+.text {
+    margin-bottom: 40px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: rgba(17, 16, 28, 0.5);
+}
+
+.subtext {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #8a8a89;
+}
+
+.nameDiv {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.photoNanny {
+    display: block;
+    border-radius: 15px;
+    width: 44px;
+    height: 44px;
+    margin-right: 14px;
+}
+
+.sendBtn {
+    background-color: var(--theme-color);
+    border-radius: 30px;
+    padding: 16px 217px;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: #fbfbfb;
+}
