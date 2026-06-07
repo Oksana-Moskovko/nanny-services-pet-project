@@ -1,16 +1,24 @@
 import { useForm } from "react-hook-form";
 import css from "./AppointmentForm.module.css";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 export function AppointmentForm({ nanny, onClose }) {
-  // const handleSubmit = (formData: FormData) => {
-  //   const username = formData.get("username") as string;
-  //   console.log("Name:", username);
-  // };
+  const rendezvousFormSchema = Yup.object().shape({
+    address: Yup.string().required("Address is required"),
+    telefon: Yup.string().required("Telefon is required"),
+    age: Yup.string().required("Child's age is required"),
+    time: Yup.string().required("Meeting time is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    name: Yup.string().required("Father's or mother's name is required"),
+    comment: Yup.string().max(500, "Comment is too long"),
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(rendezvousFormSchema) });
 
   if (!nanny) return null;
 
@@ -39,19 +47,67 @@ export function AppointmentForm({ nanny, onClose }) {
           <p className={css.blackText}>{nanny.name}</p>
         </div>
       </div>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
-        <input {...register("Address", { required: true })} />
-        <input {...register("telefon", { required: true, pattern: /\d+/ })} />
-        <input
-          {...register("Child's age", { required: true, pattern: /\d+/ })}
-        />
-        <input {...register("date", { required: true, pattern: /\d+/ })} />
-        <input {...register("email", { required: true })} />
-        <input {...register("Father's or mother's name", { required: true })} />
-        <input {...register("Comment", { required: true })} />
+      <form
+        className={css.formAppointment}
+        onSubmit={handleSubmit((data) => console.log(data))}
+      >
+        <label>
+          <input
+            className={css.inputForm}
+            name="address"
+            placeholder="Address"
+            {...register("address")}
+          />
+        </label>
+        <label>
+          {/* <span>+380</span> */}
+          <input
+            className={css.inputForm}
+            name="telefon"
+            {...register("telefon")}
+          />
+        </label>
+        <label>
+          <input
+            className={css.inputForm}
+            name="age"
+            placeholder="Child's age"
+            {...register("age")}
+          />
+        </label>
+        <label>
+          <input
+            className={css.inputForm}
+            name="time"
+            placeholder="00:00"
+            {...register("time")}
+          />
+        </label>
+        <label>
+          <input
+            className={css.inputForm}
+            placeholder="Email"
+            {...register("email")}
+          />
+          {errors.email && <p>{errors.email.message}</p>}
+        </label>
 
-        {errors.email && <p>Email is required.</p>}
-        {errors.age && <p>Please enter number for age.</p>}
+        <label>
+          <input
+            name="name"
+            className={css.inputForm}
+            placeholder="Father's or mother's name"
+            {...register("name")}
+          />
+        </label>
+        <label>
+          <input
+            name="comment"
+            className={css.inputForm}
+            placeholder="Comment"
+            {...register("comment")}
+          />
+        </label>
 
         <button type="submit" className={css.sendBtn}>
           Send
