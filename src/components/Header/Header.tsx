@@ -3,9 +3,11 @@ import css from "./Header.module.css";
 import { Link } from "react-router";
 import Modal from "../Modal/Modal";
 import { LogInFormModal } from "../LogInFormModal/LogInFormModal";
+import { RegistrationFormModal } from "../RegistrationFormModal/RegistrationFormModal";
 
 const Header = () => {
   const [isOpenLogIn, setIsOpenLogIn] = useState(false);
+  const [isOpenRegistration, setIsOpenRegistration] = useState(false);
 
   return (
     <header className={css.header}>
@@ -31,12 +33,22 @@ const Header = () => {
           <button className={css.logInBtn} onClick={() => setIsOpenLogIn(true)}>
             Log in
           </button>
-          <button className={css.registrationBtn}>Registration</button>
+          <button
+            className={css.registrationBtn}
+            onClick={() => setIsOpenRegistration(true)}
+          >
+            Registration
+          </button>
         </div>
       </div>
       {isOpenLogIn && (
         <Modal onClose={() => setIsOpenLogIn(false)}>
           <LogInFormModal onClose={() => setIsOpenLogIn(false)} />
+        </Modal>
+      )}
+      {isOpenRegistration && (
+        <Modal onClose={() => setIsOpenRegistration(false)}>
+          <RegistrationFormModal onClose={() => setIsOpenRegistration(false)} />
         </Modal>
       )}
     </header>

@@ -138,7 +138,7 @@ export function AppointmentForm({ nanny, onClose }) {
           {errors.comment && <p>{errors.comment.message}</p>}
         </label>
 
-        <button type="submit" className={css.sendBtn} onClick={onClose}>
+        <button type="submit" className={css.sendBtn}>
           Send
         </button>
       </form>
