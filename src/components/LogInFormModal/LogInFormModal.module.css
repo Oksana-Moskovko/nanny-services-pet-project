@@ -1,0 +1,66 @@
+.formLogIn {
+    border-radius: 30px;
+    width: 438px;
+    background: #fbfbfb;
+    color: #11101C;
+}
+
+.backBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    color: #11101C;
+    background-color: transparent;
+}
+
+.title {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #11101c;
+    margin-bottom: 20px;
+}
+
+.text {
+    margin-bottom: 40px;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: rgba(17, 16, 28, 0.5);
+}
+
+.inputeFormDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+.inputForm {
+    border: 1px solid rgba(17, 16, 28, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px;
+    background: #fbfbfb;
+    color: #11101c;
+    width: 438px;
+}
+
+.inputForm::placeholder {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #11101c;
+}
+
+
+.LogInBtn {
+    border-radius: 30px;
+    padding: 16px 196px;
+    background: var(--theme-color)
+}

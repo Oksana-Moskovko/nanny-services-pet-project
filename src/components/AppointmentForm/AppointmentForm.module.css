@@ -1,5 +1,5 @@
 .appointmentDiv {
-    /* width: 472px; */
+    width: 472px;
     color: #11101c;
 }
 .backBtn {
@@ -75,10 +75,48 @@
     padding: 16px 18px 16px 18px;
     background-color: #fbfbfb;
     width: 232px;
-    /* height: 52px; */
+    height: 52px;
+
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
+    color: #11101c;
+}
+
+.inputForm::placeholder {
+    color: #11101c;
+}
+
+.inputeLong {
+    width: 472px;
+}
+
+.inputIcon {
+    position: relative;
+}
+
+.iconTime {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+}
+
+.inputFormComment {
+    border: 1px solid rgba(17, 16, 28, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px 16px 18px;
+    background-color: #fbfbfb;
+    width: 472px;
+    height: 116px;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #11101c;
+    resize: none;
+}
+.inputFormComment::placeholder {
     color: #11101c;
 }

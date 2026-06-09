@@ -1,9 +1,7 @@
 import css from "./ReadMoreComent.module.css";
 
 export function ReadMoreComent({ nanny, isOpen, onToggle }) {
-  // const [isOpen, setIsOpen] = useState(false);
   const reviews = nanny.reviews;
-  // const toggle = () => setIsOpen(!isOpen);
 
   return (
     <>

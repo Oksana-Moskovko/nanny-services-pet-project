@@ -1,7 +1,12 @@
+import { useState } from "react";
 import css from "./MainHeader.module.css";
 import { Link } from "react-router";
+import { LogInFormModal } from "../LogInFormModal/LogInFormModal";
+import Modal from "../Modal/Modal";
 
 const MainHeader = () => {
+  const [isOpenLogIn, setIsOpenLogIn] = useState(false);
+
   return (
     <header className={css.header}>
       <div className={css.headerContainer}>
@@ -23,10 +28,17 @@ const MainHeader = () => {
             </ul>
           </nav>
 
-          <button className={css.logInBtn}>Log in</button>
+          <button className={css.logInBtn} onClick={() => setIsOpenLogIn(true)}>
+            Log in
+          </button>
           <button className={css.registrationBtn}>Registration</button>
         </div>
       </div>
+      {isOpenLogIn && (
+        <Modal onClose={() => setIsOpenLogIn(false)}>
+          <LogInFormModal onClose={() => setIsOpenLogIn(false)} />
+        </Modal>
+      )}
     </header>
   );
 };

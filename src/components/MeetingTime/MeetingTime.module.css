@@ -1,0 +1,48 @@
+.meetingTimeDiv {
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
+    width: 150px;
+    height: 179px;
+    padding: 16px;
+}
+
+.timeBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.title {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #11101c;
+    margin-bottom: 16px;
+}
+
+.number {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+    height: 24px;
+    color: rgba(17, 16, 28, 0.3);
+}
+
+.number:hover,
+.number:focus {
+    color: #11101c;
+}
+
+.icon {
+    fill: #d9d9d9;
+    stroke: #11101c;
+}
