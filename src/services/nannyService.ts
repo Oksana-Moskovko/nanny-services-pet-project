@@ -1,5 +1,6 @@
-import { ref, get } from "firebase/database";
-import { database } from "../firebase/config";
+import { ref, get, set } from "firebase/database";
+import { auth, database } from "../firebase/config";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 export interface Nanny {
   about: string,
@@ -20,10 +21,32 @@ export async function fetchNannies() {
   const snapshot = await get(ref(database, "nannies"));
 
   if (snapshot.exists()) {
-    // console.log(snapshot.val());
     return snapshot.val();
   } else {
     console.log("Немає даних");
     return null;
   }
+}
+
+export async function registerUser(name: string, email: string, password: string) {
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  
+  await updateProfile(userCredential.user, {
+    displayName: name,
+  });
+
+  await set(
+    ref(database, `users/${userCredential.user.uid}`),
+    {
+      name,
+      email,
+    }
+  );
+
+  return userCredential.user;
+}
+
+export async function logInUser(email: string, password: string) {
+  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  return userCredential.user;
 }

@@ -67,3 +67,19 @@
     border-radius: 30px;
     padding: 14px 40px;
 }
+
+/*///////////// Nannies styles /////////////*/
+
+.headerNannies {
+    background: var(--theme-color);
+}
+
+.headerContainerNannies {
+    max-width: 1184px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 128px;
+    margin: 0px auto;
+    color: white;
+}

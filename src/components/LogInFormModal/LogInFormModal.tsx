@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { GoX } from "react-icons/go";
+import { logInUser } from "../../services/nannyService";
 
 export function LogInFormModal({ onClose }) {
   const LogInFormSchema = Yup.object().shape({
@@ -18,11 +19,18 @@ export function LogInFormModal({ onClose }) {
     resolver: yupResolver(LogInFormSchema),
   });
 
+  const onSubmit = async (data) => {
+    try {
+      const user = await logInUser(data.email, data.password);
+      console.log(user);
+      onClose();
+    } catch {
+      console.error(errors);
+    }
+  };
+
   return (
-    <form
-      className={css.formLogIn}
-      onSubmit={handleSubmit((data) => console.log(data))}
-    >
+    <form className={css.formLogIn} onSubmit={handleSubmit(onSubmit)}>
       <button className={css.backBtn} onClick={onClose}>
         <GoX size={32} />
       </button>

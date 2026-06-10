@@ -4,14 +4,24 @@ import { Link } from "react-router";
 import Modal from "../Modal/Modal";
 import { LogInFormModal } from "../LogInFormModal/LogInFormModal";
 import { RegistrationFormModal } from "../RegistrationFormModal/RegistrationFormModal";
+import { useAuth } from "../../services/useAuth";
 
-const Header = () => {
+const Header = ({ variant = "home" }) => {
   const [isOpenLogIn, setIsOpenLogIn] = useState(false);
   const [isOpenRegistration, setIsOpenRegistration] = useState(false);
+  const { user } = useAuth();
 
   return (
-    <header className={css.header}>
-      <div className={css.headerContainer}>
+    <header
+      className={`${css.header} ${
+        variant === "nannies" ? css.headerNannies : ""
+      }`}
+    >
+      <div
+        className={`${css.headerContainer} ${
+          variant === "nannies" ? css.headerContainerNannies : ""
+        }`}
+      >
         <Link to="/" aria-label="Home">
           Nanny.Services
         </Link>
@@ -24,21 +34,35 @@ const Header = () => {
               <li>
                 <Link to="/nannies">Nannies</Link>
               </li>
-              {/* <li>
-            <Link to="/favorites">Favorites</Link>
-          </li> */}
+              {user && (
+                <li>
+                  <Link to="/favorites">Favorites</Link>
+                </li>
+              )}
             </ul>
           </nav>
 
-          <button className={css.logInBtn} onClick={() => setIsOpenLogIn(true)}>
-            Log in
-          </button>
-          <button
-            className={css.registrationBtn}
-            onClick={() => setIsOpenRegistration(true)}
-          >
-            Registration
-          </button>
+          {!user ? (
+            <div>
+              <button
+                className={css.logInBtn}
+                onClick={() => setIsOpenLogIn(true)}
+              >
+                Log in
+              </button>
+              <button
+                className={css.registrationBtn}
+                onClick={() => setIsOpenRegistration(true)}
+              >
+                Registration
+              </button>
+            </div>
+          ) : (
+            <div className={css.userDiv}>
+              <p>{user.displayName}</p>
+              <button>Logout</button>
+            </div>
+          )}
         </div>
       </div>
       {isOpenLogIn && (
