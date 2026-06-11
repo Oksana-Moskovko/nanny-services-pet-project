@@ -64,3 +64,14 @@
     height: 52px;
     background: var(--theme-color)
 }
+
+.inputFormPassword {
+    position: relative;
+}
+
+.iconEye {
+    position: absolute;
+    fill: #11101c;
+    top: 16px;
+    right: 18px;
+}

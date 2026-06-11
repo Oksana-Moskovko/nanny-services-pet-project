@@ -35,21 +35,35 @@ export function FavoritesPage() {
 
     const isFav = !!favorites[nannyId];
 
-    setFavorites((prev) => ({
-      ...prev,
-      [nannyId]: !isFav,
-    }));
+    setFavorites((prev) => {
+      const updated = { ...prev };
+
+      if (isFav) {
+        delete updated[nannyId];
+      } else {
+        updated[nannyId] = true;
+      }
+
+      return updated;
+    });
 
     try {
       await toggleFavorite(user.uid, nannyId, isFav);
     } catch (error) {
       console.log(error);
-    }
 
-    setFavorites((prev) => ({
-      ...prev,
-      [nannyId]: isFav,
-    }));
+      setFavorites((prev) => {
+        const updated = { ...prev };
+
+        if (!isFav) {
+          delete updated[nannyId];
+        } else {
+          updated[nannyId] = true;
+        }
+
+        return updated;
+      });
+    }
   };
 
   const filteredNannies = useMemo(() => {

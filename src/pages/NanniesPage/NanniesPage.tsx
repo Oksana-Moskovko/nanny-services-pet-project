@@ -65,6 +65,11 @@ export default function NanniesPage() {
     }
   };
 
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter);
+    setVisibleCount(3);
+  };
+
   const filteredNannies = useMemo(() => {
     return filterNannies(nannies, selectedFilter);
   }, [nannies, selectedFilter]);
@@ -93,7 +98,7 @@ export default function NanniesPage() {
   return (
     <section className={css.container}>
       <FiltersDivBtn
-        onSelectFilter={setSelectedFilter}
+        onSelectFilter={handleFilterChange}
         setFilterLabel={setFilterLabel}
         filterLabel={filterLabel}
       />

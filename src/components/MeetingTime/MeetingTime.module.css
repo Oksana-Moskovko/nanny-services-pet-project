@@ -42,6 +42,10 @@
     color: #11101c;
 }
 
+.active {
+    color: #11101c;
+}
+
 .icon {
     fill: #d9d9d9;
     stroke: #11101c;

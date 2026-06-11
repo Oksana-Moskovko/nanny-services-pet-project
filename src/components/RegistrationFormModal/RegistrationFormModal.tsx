@@ -2,10 +2,13 @@ import css from "./RegistrationFormModal.module.css";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { GoX } from "react-icons/go";
+import { GoEye, GoEyeClosed, GoX } from "react-icons/go";
 import { registerUser } from "../../services/nannyService";
+import { useState } from "react";
 
 export function RegistrationFormModal({ onClose }) {
+  const [showPassword, setShowPassword] = useState(false);
+
   const LogInFormSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -59,13 +62,23 @@ export function RegistrationFormModal({ onClose }) {
           {errors.email && <p>{errors.email.message}</p>}
         </label>
 
-        <label>
+        <label className={css.inputFormPassword}>
           <input
             className={css.inputForm}
+            type={showPassword ? "text" : "password"}
             {...register("password")}
             placeholder="Password"
           />
-          <span className={css.iconEye}></span>
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? (
+              <GoEye className={css.iconEye} size={20} />
+            ) : (
+              <GoEyeClosed className={css.iconEye} size={20} />
+            )}
+          </button>
           {errors.password && <p>{errors.password.message}</p>}
         </label>
       </div>

@@ -105,6 +105,7 @@ export function AppointmentForm({ nanny, onClose }) {
               setTime={setTime}
               setIsOpen={setIsOpen}
               setValue={setValue}
+              selectedTime={time}
             />
           )}
           {errors.time && <p>{errors.time.message}</p>}

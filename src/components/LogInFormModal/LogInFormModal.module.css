@@ -58,6 +58,18 @@
     color: #11101c;
 }
 
+.inputFormPassword {
+    position: relative;
+}
+
+.iconEye {
+    position: absolute;
+    fill: #11101c;
+    top: 16px;
+    right: 18px;
+}
+
+
 
 .LogInBtn {
     border-radius: 30px;
