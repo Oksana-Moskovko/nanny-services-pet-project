@@ -1,4 +1,6 @@
 .iconI {
+    margin-right: 16px;
+    margin-left: 16px;
     color: #8a8a89;
 }
 
@@ -14,14 +16,34 @@
 }
 
 .listNannies {
+    position: relative;
     background: #fbfbfb;
     border-radius: 24px;
     display: flex;
     margin-bottom: 34px;
 }
+.iconLocation {
+    margin-right: 8px;
+}
+
+.iconHeader {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+.iconHeaderFill {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    fill: var(--theme-color);
+}
 
 .listNannies:last-child {
     margin-bottom: 64px;
+}
+
+.locationRatingPriceDiv {
+    padding-right: 98px;
 }
 
 .divFrame {
@@ -30,6 +52,7 @@
 }
 
 .frame {
+    position: relative;
     border: 2px solid var(--theme-bg);
     border-radius: 30px;
     width: 120px;
@@ -37,6 +60,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.circleWhite {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: #fbfbfb;
+    width: 14px;
+    height: 14px;
+}
+
+.circleGreen {
+    border-radius: 100%;
+    background-color: #38cd3e;
+    width: 10px;
+    height: 10px;
 }
 
 .photoNanny {
@@ -104,4 +147,9 @@
     line-height: 1.25;
     letter-spacing: -0.01em;
     color: #fbfbfb;
+}
+
+.iconStar {
+    fill: #ffc531;
+    margin-right: 8px;
 }

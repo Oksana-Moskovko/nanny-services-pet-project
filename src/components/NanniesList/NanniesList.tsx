@@ -2,20 +2,36 @@ import { useState } from "react";
 import { getAge } from "../../utils/getAge";
 import { ReadMoreComent } from "../ReadMoreComent/ReadMoreComent";
 import css from "./NanniesList.module.css";
+import { GoHeart, GoHeartFill, GoStarFill } from "react-icons/go";
+import { CiLocationOn } from "react-icons/ci";
 
-export function NanniesList({ nannies, visibleCount, onSelectNanny }) {
+export function NanniesList({
+  nannies,
+  visibleCount,
+  onSelectNanny,
+  handleFavoriteClick,
+  isFavorite,
+}) {
   const [openReviewsId, setOpenReviewsId] = useState(null);
 
   return (
     <>
       <ul className={css.list}>
-        {nannies.slice(0, visibleCount).map((nanny, index) => (
-          <li
-            key={`${nanny.name}-${nanny.birthday}-${index}`}
-            className={css.listNannies}
-          >
+        {nannies.slice(0, visibleCount).map((nanny) => (
+          <li key={nanny.id} className={css.listNannies}>
+            <div onClick={() => handleFavoriteClick(nanny.id)}>
+              {isFavorite[nanny.id] ? (
+                <GoHeartFill className={css.iconHeaderFill} size={26} />
+              ) : (
+                <GoHeart className={css.iconHeader} size={26} />
+              )}
+            </div>
+
             <div className={css.divFrame}>
               <div className={css.frame}>
+                <span className={css.circleWhite}>
+                  <span className={css.circleGreen}></span>
+                </span>
                 <img
                   src={nanny.avatar_url}
                   alt={nanny.name}
@@ -31,12 +47,17 @@ export function NanniesList({ nannies, visibleCount, onSelectNanny }) {
                   <p>Nanny</p>
                   <h3 className={css.blackText}>{nanny.name}</h3>
                 </div>
-                <div>
+                <div className={css.locationRatingPriceDiv}>
                   <p className={css.blackText}>
-                    <span className={css.icon}></span>
+                    <span className={css.icon}>
+                      <CiLocationOn className={css.iconLocation} size={16} />
+                    </span>
                     {nanny.location} <span className={css.iconI}>|</span>{" "}
-                    <span className={css.icon}></span>Rating: {nanny.rating}{" "}
-                    <span className={css.iconI}>|</span> Price / 1 hour:{" "}
+                    <span className={css.icon}>
+                      <GoStarFill className={css.iconStar} size={16} />
+                    </span>
+                    Rating: {nanny.rating} <span className={css.iconI}>|</span>{" "}
+                    Price / 1 hour:{" "}
                     <span className={css.price}>{nanny.price_per_hour} $</span>
                   </p>
                 </div>
@@ -77,15 +98,13 @@ export function NanniesList({ nannies, visibleCount, onSelectNanny }) {
 
               <ReadMoreComent
                 nanny={nanny}
-                isOpen={openReviewsId === nanny.name}
+                isOpen={openReviewsId === nanny.id}
                 onToggle={() =>
-                  setOpenReviewsId(
-                    openReviewsId === nanny.name ? null : nanny.name
-                  )
+                  setOpenReviewsId(openReviewsId === nanny.id ? null : nanny.id)
                 }
               />
 
-              {openReviewsId === nanny.name && (
+              {openReviewsId === nanny.id && (
                 <button
                   onClick={() => onSelectNanny(nanny)}
                   className={css.appointmentBtn}

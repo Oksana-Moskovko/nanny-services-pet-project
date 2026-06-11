@@ -1,0 +1,72 @@
+.filtersDiv {
+    position: relative;
+    z-index: 1;
+    padding: 0 0 0 100px;
+    margin-bottom: 32px;
+}
+
+.textP {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28571;
+    color: #8a8a89;
+    margin-bottom: 8px;
+}
+
+.filtersNav {
+    position: absolute;
+    top: 82px;
+    border-radius: 14px;
+    width: 226px;
+    height: 244px;
+    padding: 14px 18px 18px 18px;
+    box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
+    background: #fff;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.11111;
+    color: rgba(17, 16, 28, 0.3);
+}
+
+.listFilters {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.11111;
+    color: rgba(17, 16, 28, 0.3);
+    margin-bottom: 12px;
+}
+.active {
+    color: #11101c;
+}
+
+.listFilters:hover,
+.listFilters:focus,
+.listFilters:active {
+    color: #11101c;
+}
+
+.listFilters:last-child {
+    margin-bottom: 0;
+}
+
+.filtersBtn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--theme-color);
+    border-radius: 14px;
+    padding: 16px 18px;
+    width: 226px;
+    height: 48px;
+    color: #FBFBFB;
+
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11111;
+}

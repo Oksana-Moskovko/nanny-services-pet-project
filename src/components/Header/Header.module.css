@@ -10,19 +10,15 @@
 }
 
 .headerContainer {
-    height: 48px;
-    max-width: 1184px;
+    /* height: 48px; */
     margin: 0px auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 96px;
+    padding: 20px 128px;
 }
 
 .headerNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-left: auto;
 }
 
 .header a {
@@ -41,7 +37,7 @@
     margin: 0;
     padding: 14px 92px 14px 0;
     display: flex;
-    gap: 1rem;
+    gap: 40px;
 }
 
 .navigation li a {
@@ -52,6 +48,65 @@
 
 .navigation li a:hover {
     color: #ddd;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.circle {
+    margin-top: 4px;
+fill: #fff;
+}
+
+/* .activeLink {
+fill: #fff;
+} */
+
+.userDiv {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11111;
+    letter-spacing: -0.01em;
+    color: #fbfbfb;
+    margin-right: 24px;
+}
+
+.iconUserDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbfbfb;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    margin-right: 14px;
+}
+
+.iconUser {
+    fill: var(--theme-color)
+}
+
+.LogOut {
+    border: 1px solid rgba(251, 251, 251, 0.4);
+    border-radius: 30px;
+    padding: 14px 39px;
+    width: 134px;
+    height: 48px;
 }
 
 .logInBtn {
@@ -71,15 +126,22 @@
 /*///////////// Nannies styles /////////////*/
 
 .headerNannies {
+    padding: 0;
     background: var(--theme-color);
 }
 
 .headerContainerNannies {
-    max-width: 1184px;
-    display: flex;
-    align-items: center;
+    height: 88px;
+    width: 1184px;
     justify-content: space-between;
-    padding: 30px 128px;
-    margin: 0px auto;
+    padding: 0;
     color: white;
+}
+
+.headerNavNannies {
+    margin-left: 0px;
+}
+
+.navigationNannies {
+    padding: 14px 0;
 }
